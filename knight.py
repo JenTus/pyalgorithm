@@ -30,9 +30,8 @@ def dfs(i, j):
         [prei, prej] = locationlist.pop()
         board[prei][prej] = 0
         if len(locationlist) == 0:
-            return "failed"
-        else:
-            return 1
+            print "Fail!"
+        return 1
 
 
 def route(i, j):
