@@ -4,11 +4,9 @@ import numpy as np
 # newnode means the i+1 th row
 def nextnode(pre_j_list, newnode, n):
     nex = [i for i in range(n)]
-    nolist = []
-    for i in range(len(pre_j_list)):
-        nolist.append(pre_j_list[i] + (newnode - i))
-        nolist.append(pre_j_list[i] - (newnode - i))
-        nolist.append(pre_j_list[i])
+    pp = [[i, pre_j_list[i]] for i in range(len(pre_j_list))]
+    nn = [[x, x + (newnode - i), x - (newnode - i)] for [i, x] in pp]
+    nolist = reduce((lambda i, j: i + j), nn)
     return list(np.setdiff1d(np.array(nex), np.array(nolist)))
 
 
@@ -40,6 +38,7 @@ def nqueen(n):
 
 result = []
 nqueen(9)
+
 
 len(result)
 result
