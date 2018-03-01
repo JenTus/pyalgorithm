@@ -1,9 +1,6 @@
 import numpy as np
 
 
-result = []
-
-
 # newnode means the i+1 th row
 def nextnode(pre_j_list, newnode, n):
     nex = [i for i in range(n)]
@@ -19,10 +16,10 @@ def dfs(newnode, j, n, pre_j_list):
     pre_j_list.append(j)
     if newnode == n-1:
         result_list = [[i, pre_j_list[i]] for i in range(n)]
-        temp = [[0 for _ in range(n)] for _ in range(n)]
+        temp = [["." for _ in range(n)] for _ in range(n)]
         for x in result_list:
-            temp[x[0]][x[1]] = 1
-        result.append(temp)
+            temp[x[0]][x[1]] = "Q"
+        result.append(["".join(x) for x in temp])
         pre_j_list.pop()
         return 0
     else:
@@ -41,9 +38,11 @@ def nqueen(n):
         dfs(0, j, n, [])
 
 
-nqueen(8)
+result = []
+nqueen(9)
 
 len(result)
+result
 result[0]
 result[1]
 result[2]
