@@ -35,3 +35,4 @@ def rotatedDigits(N):
 
 [reverse(i) for i in "3333"]
 rotatedDigits(857)
+len(rotatedDigits(857))
