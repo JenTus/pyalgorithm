@@ -43,3 +43,33 @@ np.vstack([a, b])
 # Q. Stack the arrays a and b horizontally.
 np.concatenate((a, b), axis=1)
 np.hstack([a, b])
+
+
+# Q. array([1, 1, 1, 2, 2, 2, 3, 3, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3])
+a = np.array([1, 2, 3])
+np.r_[np.repeat(a, 3), np.tile(a, 3)]
+np.repeat(a, 3)
+np.tile(a, 3)
+
+
+# Q. Get the common items between a and b
+a = np.array([1, 2, 3, 2, 3, 4, 3, 4, 5, 6])
+b = np.array([7, 2, 10, 2, 7, 4, 9, 4, 9, 8])
+np.intersect1d(a, b)
+
+
+# Q. From array a remove all items present in array b
+a = np.array([1, 2, 3, 4, 5])
+b = np.array([5, 6, 7, 8, 9])
+np.setdiff1d(a, b)
+
+
+# Q. Get the positions where elements of a and b match
+a = np.array([1, 2, 3, 2, 3, 4, 3, 4, 5, 6])
+b = np.array([7, 2, 10, 2, 7, 4, 9, 4, 9, 8])
+np.where(a == b)
+
+
+# Q. Get all items between 5 and 10 from a.
+a = np.arange(15)
+a[(a >= 5) & (a <= 10)]
