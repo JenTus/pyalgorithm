@@ -75,7 +75,8 @@ a = np.arange(15)
 a[(a >= 5) & (a <= 10)]
 
 
-# Q. Convert the function maxx that works on two scalars, to work on two arrays.
+# Q. Convert the function maxx that works on two scalars,
+# to work on two arrays.
 def maxx(x, y):
     if x > y:
         return x
@@ -116,3 +117,32 @@ np.random.uniform(5, 10, size=(5, 3))
 rand_arr = np.random.random((5, 3))
 np.set_printoptions(precision=3)
 rand_arr
+
+
+# Q. Pretty print rand_arr by suppressing the scientific notation (like 1e10)
+np.random.seed(100)
+rand_arr = np.random.random([3, 3])/1e3
+rand_arr
+np.set_printoptions(suppress=True, precision=6)
+rand_arr
+
+
+# Q. Limit the number of items printed in python numpy array a to a maximum
+# of 6 elements.
+np.set_printoptions(threshold=6)
+a = np.arange(15)
+a
+
+
+# Q. Print the full numpy array a without truncating.
+np.set_printoptions(threshold=6)
+a = np.arange(6)
+np.set_printoptions(threshold=np.nan)
+a
+
+
+# Q. Import the iris dataset keeping the text intact
+url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+iris = np.genfromtxt(url, delimiter=',', dtype='object')
+names = ('sepallength', 'sepalwidth', 'petallength', 'petalwidth', 'species')
+iris[0:3, :]
