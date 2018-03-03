@@ -23,4 +23,5 @@ def combine(n, k):
 
     return combinelist
 
-combine(5,2)
+
+combine(3, 0)
