@@ -73,3 +73,46 @@ np.where(a == b)
 # Q. Get all items between 5 and 10 from a.
 a = np.arange(15)
 a[(a >= 5) & (a <= 10)]
+
+
+# Q. Convert the function maxx that works on two scalars, to work on two arrays.
+def maxx(x, y):
+    if x > y:
+        return x
+    else:
+        return y
+
+
+pair_max = np.vectorize(maxx, otypes=[float])
+a = np.array([1, 2, 3, 2, 3, 4, 3, 4, 5, 6])
+b = np.array([7, 2, 10, 2, 7, 4, 9, 4, 9, 8])
+pair_max(a, b)
+
+
+# Q. Swap columns 1 and 2 in the array arr.
+arr = np.arange(9).reshape(3, 3)
+arr[:, [1, 0, 2]]
+
+
+# Q. Swap rows 1 and 2 in the array arr:
+arr = np.arange(9).reshape(3, 3)
+arr[[1, 0, 2], :]
+
+
+# Q. Reverse the rows/ columns of a 2D array arr
+arr = np.arange(9).reshape(3, 3)
+arr[::-1, ]
+arr[:, ::-1]
+
+
+# Q. Create a 2D array of shape 5x3 to contain random decimal numbers between
+# 5 and 10
+np.random.rand(5, 3) * 5 + 5
+np.random.randint(low=5, high=10, size=(5, 3)) + np.random.random((5, 3))
+np.random.uniform(5, 10, size=(5, 3))
+
+
+# Q. Print or show only 3 decimal places of the numpy array rand_arr.
+rand_arr = np.random.random((5, 3))
+np.set_printoptions(precision=3)
+rand_arr
