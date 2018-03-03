@@ -142,7 +142,8 @@ a
 
 
 # Q. Import the iris dataset keeping the text intact
-url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+url = 'https://archive.ics.uci.edu/ml/machine-learning-datab' \
+      'ases/iris/iris.data'
 iris = np.genfromtxt(url, delimiter=',', dtype='object')
 names = ('sepallength', 'sepalwidth', 'petallength', 'petalwidth', 'species')
 iris[0:3, :]
