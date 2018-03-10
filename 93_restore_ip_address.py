@@ -12,26 +12,31 @@ brute force
 
 
 # reserved ip lists that can not be used
-a = [[[10, 0, 0, 0], [10, 255, 255, 255]],
-     [[172, 16, 0, 0], [172, 31, 255, 255]],
-     [[192, 168, 0, 0], [192, 168, 255, 255]]]
-
+# a = [[[10, 0, 0, 0], [10, 255, 255, 255]],
+#      [[172, 16, 0, 0], [172, 31, 255, 255]],
+#      [[192, 168, 0, 0], [192, 168, 255, 255]]]
+#
 
 # test if a ip address is valid
+# def test_validity2(ip_address):
+#     for ip in ip_address:
+#         if ip > 255:
+#             return False
+#     for i in range(len(a)):
+#         flag = 0
+#         for j in range(len(a[0][0])):
+#             if (a[i][0][j] > ip_address[j]) | (a[i][1][j] < ip_address[j]):
+#                 flag = 1
+#         if flag == 0:
+#             return False
+#     return True
+
+
 def test_validity(ip_address):
     for ip in ip_address:
         if ip > 255:
             return False
-    for i in range(len(a)):
-        flag = 0
-        for j in range(len(a[0][0])):
-            if (a[i][0][j] > ip_address[j]) | (a[i][1][j] < ip_address[j]):
-                flag = 1
-        if flag == 0:
-            return False
     return True
-
-
 # chagne a string into a ipaddress list
 # according to the index
 def change_str_iplist(s, i, j, k):
@@ -56,12 +61,14 @@ def get_valid_iplist(s):
 
 
 # chagne valid ip into str.str.str.str form
-def chagne_valid_ip_form(valid_ip):
+def changee_valid_ip_form(valid_ip, s):
     ip_str = []
     for valid in valid_ip:
-        ip_str.append(".".join([str(x) for x in valid]))
+        need_check_0 = ".".join([str(x) for x in valid])  # eg."001"
+        if len(need_check_0) - 3 == len(s):
+            ip_str.append(need_check_0)
     return ip_str
 
 
 valid_ip = get_valid_iplist("25525511135")
-chagne_valid_ip_form(valid_ip)
+changee_valid_ip_form(valid_ip, "25525511135")

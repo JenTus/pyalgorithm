@@ -6,7 +6,12 @@ Most of the problems come form leetcode
 numpy_exercise.py
 
 ## backtracking problems
-1, nqueen.py
-2, knight.py
-3, permutations.py
-4, permutation_2.py
+1, nqueen
+2, knight
+3, permutations
+4, combinations
+5, subsets
+6, word_search
+7, restore_ip_address
+
+## Array
