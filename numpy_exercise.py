@@ -147,3 +147,31 @@ url = 'https://archive.ics.uci.edu/ml/machine-learning-datab' \
 iris = np.genfromtxt(url, delimiter=',', dtype='object')
 names = ('sepallength', 'sepalwidth', 'petallength', 'petalwidth', 'species')
 iris[0:3, :]
+
+
+# Q. Extract the text column species from the 1D iris imported
+# in previous question.
+print iris.shape
+species = np.array([row[4] for row in iris])
+species[:5]
+
+
+# Q. Convert the 1D iris to 2D array iris_2d by omitting the species text field
+url = 'https://archive.ics.uci.edu/ml/machine-' \
+      'learning-databases/iris/iris.data'
+iris_1d = np.genfromtxt(url, delimiter=',', dtype=None)
+iris_2d = np.array([row.tolist()[:4] for row in iris_1d])
+iris_2d[:4]
+
+
+iris_2d = np.genfromtxt(url, delimiter=',', dtype='float',
+                        usecols=[0, 1, 2, 3])
+iris_2d[:4]
+
+
+# Q. Find the mean, median, standard deviation of iris's sepallength
+# (1st column)
+url = 'https://archive.ics.uci.edu/ml/machine-'\
+      'learning-databases/iris/iris.data'
+iris = np.genfromtxt(url, delimiter=',', dtype='object')
+sepallength = np.genfromtxt(url, delimiter=',', dtype='float', usecols=[0])
