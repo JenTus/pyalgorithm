@@ -175,3 +175,22 @@ url = 'https://archive.ics.uci.edu/ml/machine-'\
       'learning-databases/iris/iris.data'
 iris = np.genfromtxt(url, delimiter=',', dtype='object')
 sepallength = np.genfromtxt(url, delimiter=',', dtype='float', usecols=[0])
+
+mu, med, sd = np.mean(sepallength), np.median(sepallength), np.std(sepallength)
+print mu, med, sd
+
+
+# Q. Create a normalized form of iris's sepallength whose values range
+# exactly between 0 and 1 so that the minimum has value 0 and maximum
+# has value 1.
+Smax = sepallength.max()
+Smin = sepallength.min()
+(sepallength - Smin)/sepallength.ptp()
+Smax - Smin
+
+sepallength.ptp()
+sepallength.cumsum()
+sepallength.tolist()
+
+num = np.array([1, 2, 3, 4, 5, 6, 7])
+num.
